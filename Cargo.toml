@@ -1,0 +1,18 @@
+[package]
+name = "storage-service"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1.41", features = ["full"] }
+axum = "0.7.*"
+tracing = "*"
+tracing-subscriber = "*"
+tower-http = { version = "0.6.2", features = ["trace"] }
+jsonwebtoken = "9"
+serde = { version = "1", features = ["derive"] }
+serde_json="1.0.133"
+bcrypt = "0.16.0"
+chrono = "0.4.38"
+sea-orm = {version="1.1.1", features=["sqlx-postgres","runtime-tokio-native-tls"]}
+dotenvy = "0.15.7"
