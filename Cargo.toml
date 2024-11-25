@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 tokio = { version = "1.41", features = ["full"] }
-axum = "0.7.*"
+axum = {version="0.7.*", features=["macros", "multipart"]}
 tracing = "*"
 tracing-subscriber = "*"
 tower-http = { version = "0.6.2", features = ["trace"] }

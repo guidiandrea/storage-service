@@ -7,7 +7,7 @@ use sea_orm::{ActiveValue::Set, DatabaseConnection, DbErr, EntityTrait};
 use std::sync::Arc;
 #[derive(Clone)]
 pub struct UserService {
-    db: Arc<DatabaseConnection>,
+    pub db: Arc<DatabaseConnection>,
 }
 
 impl UserService {

@@ -21,3 +21,7 @@ impl IntoResponse for UserCreationError {
         (status, body).into_response()
     }
 }
+
+pub enum FileServiceError {
+    GenericError
+}

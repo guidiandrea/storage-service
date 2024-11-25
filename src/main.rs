@@ -8,7 +8,7 @@ use axum::{
     routing::{get, post},
     Router,
 };
-use routes::{auth, user};
+use routes::{auth, storage, user};
 
 use sea_orm::{Database, DatabaseConnection, DbErr};
 use tower_http::trace::{self, TraceLayer};
@@ -33,6 +33,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     };
 
     let app = Router::new()
+        .route("/api/v1/upload", post(storage::upload))
+        .route("/api/v1/:folder/files", get(storage::get_files_by_folder))
         .route("/protected/user", get(user::get_user_info))
         .route_layer(axum::middleware::from_fn(middleware::jwt_middleware))
         .route("/signup", post(auth::signup))
